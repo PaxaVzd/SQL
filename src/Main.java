@@ -90,11 +90,11 @@ public class Main {
     private static void addNewResult(Connection connection, Scanner scanner) throws SQLException {
         try {
             String drawDate = null;
-            while (drawDate == null || !drawDate.matches("\\d{1,2}-\\d{1,2}-\\d{4}")) {
-                System.out.print("Введіть дату розіграшу (день-місяць-рік): ");
+            while (drawDate == null || !drawDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                System.out.print("Введіть дату розіграшу (рік-місяць-день): ");
                 drawDate = scanner.nextLine();
-                if (!drawDate.matches("\\d{1,2}-\\d{1,2}-\\d{4}")) {
-                    System.out.println("Неправильний формат дати. Введіть у форматі день-місяць-рік.");
+                if (!drawDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                    System.out.println("Неправильний формат дати. Введіть у форматі рік-місяць-день.");
                 }
             }
 
@@ -133,6 +133,7 @@ public class Main {
             e.printStackTrace();
         }
     }
+
 
     private static void deleteResult(Connection connection, Scanner scanner) throws SQLException {
         System.out.print("Введіть ID результату, який потрібно видалити: ");
